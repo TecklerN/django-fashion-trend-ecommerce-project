@@ -1,0 +1,1 @@
+# django-fashion-trend-ecommerce-project
