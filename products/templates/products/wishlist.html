@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Your Wishlist</h2>
+  
+  {% if wishlist_items %}
+    <ul>
+      {% for item in wishlist_items %}
+        <li>
+          <div class="wishlist-item">
+            <h3>{{ item.name }}</h3>
+            <p>Price: ${{ item.price|floatformat:2 }}</p>
+            <!-- You can add a button to remove from the wishlist if needed -->
+            <a href="{% url 'remove_from_wishlist' item.pk %}" class="btn btn-danger">Remove</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Your wishlist is empty!</p>
+  {% endif %}
+{% endblock %}

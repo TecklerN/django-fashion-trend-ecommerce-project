@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Shop</h2>
+<div class="products-list">
+    {% for product in products %}
+        <div class="product-item">
+            <h3>{{ product.name }}</h3>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            <p>${{ product.price }}</p>
+            <a href="{% url 'add_to_cart' product.pk %}" class="btn btn-primary">Add to Cart</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #f0f9ff;
+    --secondary-color: #007bff;
+    --accent-color: #ffc107;
+    --text-dark: #030712;
+    --text-light: #6b7280;
+    --extra-light: #fbfbfb;
+    --white: #ffffff;
+    --max-width: 1200px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+}
+
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 4rem 1rem;
+}
+
+.section__title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.section__title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 75px;
+    background-color: var(--accent-color);
+}
+
+/* Header Styling */
+header {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+/* Navigation Bar Styling */
+.navbar {
+    background-color: var(--secondary-color);
+}
+
+.navbar a {
+    color: var(--white) !important;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.navbar a:hover {
+    color: var(--accent-color) !important;
+}
+
+.nav__links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav__icons {
+    display: flex;
+    gap: 1rem;
+    color: var(--white);
+}
+
+.nav__icons span {
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.link a:hover {
+    color: var(--accent-color);
+}
+
+/* Button Styles */
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Product Cards */
+.product-card {
+    margin: 20px 0;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--white);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-card h4 {
+    margin-top: 15px;
+    font-size: 1.25em;
+    color: var(--text-dark);
+}
+
+.product-card p {
+    font-size: 1em;
+    color: var(--text-light);
+}
+
+.product-card a {
+    color: var(--secondary-color);
+}
+
+.product-card a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Carousel */
+.carousel img {
+    width: 100%;
+    transition: opacity 0.5s ease;
+}
+
+.carousel img:hover {
+    opacity: 0.85;
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer__links {
+    list-style: none;
+}
+
+.footer__links li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer__links a {
+    color: var(--white);
+    font-weight: 500;
+}
+
+.footer__links a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+ 

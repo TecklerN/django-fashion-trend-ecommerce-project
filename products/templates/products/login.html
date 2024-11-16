@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+        <button type="submit">Login</button>
+
+        {% if form.errors %}
+    <p class="error">Invalid username or password. Please try again.</p>
+{% endif %}
+
+    </form>
+
+    {% endblock %}

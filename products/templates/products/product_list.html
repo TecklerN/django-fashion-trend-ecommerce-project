@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Search Form -->
+<form method="GET" action="{% url 'product_list' %}" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search products..." value="{{ request.GET.q }}">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+<h1 class="display-4 mb-4">Our Products</h1>
+
+<!-- Product List -->
+<h2>Product List</h2>
+<form method="get">
+    <input type="text" name="q" placeholder="Search by product name">
+    <input type="number" name="min_price" placeholder="Min Price">
+    <input type="number" name="max_price" placeholder="Max Price">
+    <button type="submit">Search</button>
+</form>
+
+
+
+<div class="product-list">
+    <div class="row">
+        {% if products %}
+            {% for product in products %}
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description|truncatewords:15 }}</p>
+                        <p class="card-text text-primary">${{ product.price }}</p>
+                        <a href="{% url 'product_detail' product.pk %}" class="btn btn-outline-primary">View Details</a>
+                        
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <p>No products found!</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Categories Section -->
+<h2 class="mt-5">Categories</h2>
+<ul class="list-group">
+    {% for category in categories %}
+        <li class="list-group-item">
+            <a href="{% url 'product_by_category' category.id %}" class="text-decoration-none text-dark">{{ category.name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<!-- Pagination -->
+<div class="pagination">
+    <span class="page-link">
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="btn btn-secondary btn-sm">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-secondary btn-sm">Previous</a>
+        {% endif %}
+    </span>
+    <span class="page-link">
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-secondary btn-sm">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-secondary btn-sm">Last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
+
